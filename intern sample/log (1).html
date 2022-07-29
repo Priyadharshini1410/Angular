@@ -1,0 +1,166 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<style type="text/css">
+*{
+ padding:0;
+margin:0;
+}
+
+body{
+  background:url("hair-spa.jpg") no-repeat;
+  background-size:cover;
+  align-items:center;
+  justify-content:center;
+  display:flex;
+  font-family:sans-serif;
+}
+
+.container{
+  position:relative;
+ margin-top:100px;
+  width:600px;
+  height:auto;
+  background:white;
+  border-radius:5px;
+  background:transparent;
+ 
+}
+
+.label{
+   padding:20px 130px;
+   font-size:50px;
+   font-weight:italic;
+   color:pink;
+}
+
+.login_form{
+  padding:10px 30px;
+}
+
+.login_form .font{
+  font-size:25px;
+  color:brown;
+  margin:5px 0;
+}
+
+.login_form input{
+ border:0;
+  background:white;
+  display:block;
+  margin:1px auto;
+  text-align:center;
+  border:1px solid  white;
+  padding:14px 10px;
+  width:200px;
+  outline:none;
+  color:black;
+  border-radius:20px;
+  transition:0.25px;
+  }
+
+.login_form .font2{
+    margin-top: 30px
+}
+
+
+.login_form button{
+  border:0;
+  background:pink;
+  display:block;
+  position:relative;
+  margin:20px auto;
+  text-align:center;
+   border:3px solid  white;
+  text-transform:uppercase;
+  letter-spacing:3px;
+  padding:14px 35px;
+  outline:none;
+  color:brown;
+  border-radius:24px;
+  transition:0.25px;
+  cursor:pointer;
+
+}
+
+
+.login_form #email_error,
+.login_form #pass_error{
+  margin-top:5px;
+  width:345px;
+  font-size:18px;
+  color:white;
+  background:rgba(255,0,0,0.9);
+  text-align:center;
+  padding:5px 8px;
+  border-radius:5px;
+  border:1px solid #EF9A9A;
+ display:none;
+}
+</style>
+</head>
+<body>
+<center>
+ <div class="container">
+<h2 class="label"><i>WELCOME!!!</i><br/></h2>
+<form class="login_form" action="log(p).html" method="post" name="form" onsubmit="return validated()">
+<div class="font">EMAIL-ID</div>
+<input autocomplete="off" type="text"name="email">
+<div id="email_error">Enter your correct emailid  </div>
+<div class="font font2">PASSWORD</div>
+<input type="password"name="password">
+<div id="pass_error"> Enter your correct password</div>
+<button type="submit">Login</button>
+
+</form>
+</div>
+
+<script>
+var email=document.forms['form']['email'];
+var password=document.forms['form']['password'];
+
+var email_error=document.getElementById('email_error');
+var pass_error=document.getElementById('pass_error');
+
+email.addEventListener('textinput',email_verify);
+password.addEventListener('textinput',pass_verify);
+
+function validated(){
+  if(email.value.length < 9) {
+  email.style.border="1px solid red";
+  email_error.style.display="block";
+  email.focus();
+  return false;
+}
+
+if(password.value.length < 6) {
+  password.style.border="1px solid red";
+  pass_error.style.display="block";
+  password.focus();
+  return false;
+  }
+
+}
+
+function email_verify(){
+  if(email.value.length >= 8){
+   email.style.border="1px solid silver";
+   email_error.style.display="none";
+   return true;
+   }
+
+}
+
+function email_verify(){
+  if(password.value.length >= 5){
+   password.style.border="1px solid silver";
+   pass_error.style.display="none";
+   return true;
+   }
+
+}
+
+
+</script>
+</body>
+</html>
